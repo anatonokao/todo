@@ -1,0 +1,73 @@
+.task {
+    display: flex;
+    align-items: center;
+    background-color: rgba(78, 78, 101, 0.28);
+    padding: 15px 25px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-family: Handlee, sans-serif;
+    font-size: 30px;
+    cursor: pointer;
+    transition: all .3s ease;
+    width: 100%;
+}
+
+.task:hover {
+    border-color: rgba(227, 185, 199, 0.25);
+}
+
+.task:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.checkIcon{
+    background-color: #3e3e50;
+    border-radius: 35%;
+    border: 1px solid #fa75a0;
+    color: #3e3e50;
+    margin-right: 20px;
+    will-change: transform;
+    transition: all .3s ease;
+    flex-shrink: 0;
+}
+
+.checkIcon:hover {
+    border-color: #934961;
+}
+
+
+.checked > .checkIcon {
+    background-color: #fa75a0;
+}
+
+.taskText {
+    flex: 1 1 auto;
+    text-align: start;
+    margin-right: 20px;
+    position: relative;
+}
+
+.taskText:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    width: 0;
+    height: 1px;
+    top: 50%;
+    background-color: #ffc1d4;
+    transition: width .3s ease;
+}
+
+.checked > .taskText:before {
+    width: 100%;
+}
+
+.trash {
+    flex-shrink: 0;
+    color: #5e585b;
+    transition: all .3s ease;
+}
+
+.trash:hover {
+    color: #bd4f4f;
+}
