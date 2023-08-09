@@ -4,7 +4,7 @@
     background-color: rgba(78, 78, 101, 0.28);
     padding: 15px 25px;
     border: 1px solid transparent;
-    border-radius: 10px;
+    border-radius: 20px;
     font-family: Handlee, sans-serif;
     font-size: 30px;
     cursor: pointer;
@@ -21,14 +21,13 @@
 }
 
 .checkIcon{
-    background-color: #3e3e50;
     border-radius: 35%;
     border: 1px solid #fa75a0;
     color: #3e3e50;
     margin-right: 20px;
-    will-change: transform;
     transition: all .3s ease;
-    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
 }
 
 .checkIcon:hover {
@@ -41,9 +40,8 @@
 }
 
 .taskText {
-    flex: 1 1 auto;
     text-align: start;
-    margin-right: 20px;
+    margin: 0 auto 0 0;
     position: relative;
 }
 
@@ -63,7 +61,8 @@
 }
 
 .trash {
-    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
     color: #5e585b;
     transition: all .3s ease;
 }

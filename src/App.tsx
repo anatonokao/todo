@@ -1,38 +1,51 @@
 import React, {useState} from 'react';
 import './App.css';
 import TasksList from "./components/Tasks/TasksList";
+import NewTask from "./components/NewTask/NewTask";
 
-// type Task = {
-//     id: number;
-//     taskText: string;
-//     isCompleted: boolean;
-//     setIsCompleted: (id: number) => void
-// }
+type Task = {
+    id: number;
+    taskText: string;
+    isCompleted: boolean;
+}
 
 function App() {
+    const localStorageData = JSON.parse(localStorage.getItem('tasks') || '[]')
 
-    const [tasks, setTasks] = useState([
-        {id: 1, taskText: 'Buy groceries', isCompleted: true},
-        {id: 2, taskText: 'Make todo list app', isCompleted: false},
-        {id: 3, taskText: 'Learn english', isCompleted: true}
-    ])
-
+    const [tasks, setTasks] = useState([...localStorageData])
     const setIsCompleted = (id: number) => {
-       // tasks[id - 1].isCompleted = !tasks[id - 1].isCompleted
-        const tasksNew = [...tasks]
-        tasksNew[id - 1] = {...tasksNew[id - 1]}
-        tasksNew[id - 1].isCompleted = !tasksNew[id - 1].isCompleted
+        const tasksNew = tasks.map((item: Task) => {
+            if (item.id === id) {
+                item.isCompleted = !item.isCompleted
+                return item
+            }
+            return item
+        })
         setTasks(tasksNew)
     }
-
     const removeTask = (id: number) => {
-        setTasks(tasks.filter(t => t.id !== id))
+        setTasks(tasks.filter((t: Task) => t.id !== id))
     }
+
+    interface Values {
+        taskText: string
+    }
+
+    const addTask = (value: Values) => {
+        console.log(value)
+        const id = tasks[tasks.length-1] ? tasks[tasks.length-1].id+1 : 1
+        const newTask = {id, taskText: `${value.taskText}`, isCompleted: false}
+        setTasks([...tasks, newTask])
+    }
+
+
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+
 
     return (
       <div className="App">
         <div className="appTitle">ToDo List</div>
-
+          <NewTask onSubmit={addTask} />
         <TasksList tasks={tasks} setIsCompleted={setIsCompleted} removeTask={removeTask}/>
         <div className="add-task"></div>
       </div>
