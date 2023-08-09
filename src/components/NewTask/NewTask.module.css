@@ -1,0 +1,47 @@
+.addTask {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    margin-bottom: 30px;
+    padding: 15px 25px;
+    width: 100%;
+    border: 1px solid #3f3f3f;
+    border-radius: 20px;
+    transition: all .3s ease;
+}
+
+.addTask:hover,
+.addTask:focus {
+    border-color: #606060;
+}
+
+.addTaskBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    border-radius: 35%;
+    overflow: hidden;
+    border: 1px solid #fa75a0;
+    transition: all .3s ease;
+}
+
+.addTaskBtn:hover {
+    border-color: #934961;
+}
+
+
+.addTaskIcon {
+    width: 30px;
+    height: 30px;
+    background-color: #fa75a0;
+    color: #3e3e50;
+}
+
+.addTaskText {
+    flex: 1 1 auto;
+    font-size: 20px;
+    background-color: transparent;
+    color: #c2c2c2;
+    opacity: 1;
+}
